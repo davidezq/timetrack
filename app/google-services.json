@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "523904386163",
+    "project_id": "timetrack-udb",
+    "storage_bucket": "timetrack-udb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523904386163:android:a5ee8b9266b722e6025606",
+        "android_client_info": {
+          "package_name": "com.example.timetrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523904386163-8909vbrnogu2sjionnf1md8m3o28va7n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.timetrack",
+            "certificate_hash": "881e54665211a3ee081fc76b78e46459d2147411"
+          }
+        },
+        {
+          "client_id": "523904386163-ru6m5vf8jguhmp8l49ph16csh5o6k3e0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4CYu-_xbVK_1ZbWQaTVcF3q5-kBqaA9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "523904386163-ru6m5vf8jguhmp8l49ph16csh5o6k3e0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
