@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/name"
+            android:text="Titulo:"
+            tools:text="Titulo:Hacer login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:id="@+id/done_At"
+            android:text="Fecha hecha:"
+            tools:text="Hecho: 10 de mayo de 2023, 10:47:34 UTC-6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:id="@+id/duration"
+            android:text="Duración: "
+            tools:text="Duración: 5 horas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:text="Descripción"
+            tools:text="Descripción:Proin suscipit libero tortor, at sodales est tincidunt vel. Aliquam sit amet enim in velit posuere iaculis quis ut sem. Duis sed arcu sit amet dui aliquam pretium. Duis a nunc id arcu tincidunt tristique. Quisque euismod leo eu arcu blandit, nec volutpat elit efficitur. Pellentesque est dui, egestas eu pretium non, pulvinar et erat. Sed tristique gravida elit. Vivamus erat urna, laoreet a urna vel, rutrum varius velit."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="?android:attr/listDivider" />
+
+</LinearLayout>
