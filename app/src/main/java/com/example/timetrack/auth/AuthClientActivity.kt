@@ -14,18 +14,23 @@ import com.example.timetrack.databinding.ActivityAuthClientBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.example.timetrack.admin.menu.MainActivity as AdminMainActivity
 
 class AuthClientActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthClientBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var user: FirebaseUser
+    private lateinit var firebaseFirestore: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthClientBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         firebaseAuth = Firebase.auth
+        firebaseFirestore = Firebase.firestore
 
         binding.btnLogIn.setOnClickListener {
             val errors = checkForm(
@@ -44,6 +49,7 @@ class AuthClientActivity : AppCompatActivity() {
             val i = Intent(this, CreateClientActivity::class.java)
             startActivity(i)
         }
+
     }
 
     private fun checkForm(vararg editTexts: EditText): Int {
@@ -70,12 +76,26 @@ class AuthClientActivity : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
                 user = firebaseAuth.currentUser!!
-                val i = Intent(this, MainActivity::class.java)
-                Toast.makeText(this.baseContext, "Welcome ${user.email}", Toast.LENGTH_LONG).show()
-                startActivity(i)
+                firebaseFirestore
+                    .collection("admins")
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        val admins = documents.map { it.id  }
+                        if (admins.contains(user?.uid)) {
+                            val i = Intent(this, AdminMainActivity::class.java)
+                            i.putExtra("email",user?.email)
+                            Toast.makeText(this.baseContext, "Welcome ${user.email}", Toast.LENGTH_LONG).show()
+                            startActivity(i)
+                        } else {
+                            val i = Intent(this, MainActivity::class.java)
+                            Toast.makeText(this.baseContext, "Welcome ${user.email}", Toast.LENGTH_LONG).show()
+                            startActivity(i)
+                        }
+                    }
             }
             .addOnFailureListener {
                 Toast.makeText(view.context, "${it.message}", Toast.LENGTH_LONG).show()
             }
+
     }
 }

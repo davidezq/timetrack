@@ -30,14 +30,15 @@ class DashboardFragment : Fragment() {
     private val binding get() = _binding!!
     private var activities = mutableListOf<ClientActivity>()
     private lateinit var adapter: ActivityAdapter
-    private lateinit var dashboardViewModel:DashboardViewModel
-    private lateinit var firebaseFirestore:FirebaseFirestore
+    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var firebaseAuth: FirebaseAuth
     private fun initRecyclerView() {
         adapter = ActivityAdapter(emptyList())
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.recyclerView.adapter = adapter
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,11 +56,15 @@ class DashboardFragment : Fragment() {
         firebaseFirestore = FirebaseFirestore.getInstance()
         firebaseAuth = Firebase.auth
 
-        dashboardViewModel.activities.observe(viewLifecycleOwner){
+        dashboardViewModel.activities.observe(viewLifecycleOwner) {
             binding.recyclerView.adapter = ActivityAdapter(it)
         }
 
-        dashboardViewModel.getAllActivities(this.requireContext(),Firebase.auth, FirebaseFirestore.getInstance())
+        dashboardViewModel.getAllActivities(
+            this.requireContext(),
+            Firebase.auth,
+            FirebaseFirestore.getInstance()
+        )
 
 
         return root
