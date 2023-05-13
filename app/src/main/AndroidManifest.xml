@@ -12,6 +12,13 @@
         android:theme="@style/Theme.Timetrack"
         tools:targetApi="31">
         <activity
+            android:name=".EditCliente"
+            android:exported="false" />
+        <activity
+            android:name=".client.DeleteCliente"
+            android:exported="false"
+            android:parentActivityName=".client.menu.MainActivity" />
+        <activity
             android:name=".admin.menu.MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main"

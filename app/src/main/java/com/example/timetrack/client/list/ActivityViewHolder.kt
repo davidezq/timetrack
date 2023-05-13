@@ -1,10 +1,12 @@
 package com.example.timetrack.client.list
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.timetrack.client.DeleteCliente
 import com.example.timetrack.client.menu.ui.dashboard.DashboardViewModel
 import com.example.timetrack.databinding.ItemActivityBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -35,13 +37,26 @@ class ActivityViewHolder(view: View) : ViewHolder(view) {
         binding.doneAt.text = "Hecho el: $doneAt"
         binding.description.text = "Descripción: $activityDescription"
 
+        // TODO: CHANGE
+        /*binding.root.setOnClickListener {
+            val i = Intent(it.context,DeleteCliente::class.java)
+            i.putExtra("id",activityId)
+            i.putExtra("name",activityName)
+            i.putExtra("duration",formatTime(activityDuration))
+            i.putExtra("done_at","$doneAt")
+            i.putExtra("description",activityDescription)
+            it.context.startActivity(i)
+            true
+        }*/
+
         binding.root.setOnLongClickListener {
-            showDialog(
-                it,
-                activityId,
-                activityName,
-                activityDescription
-            )
+            val i = Intent(it.context,DeleteCliente::class.java)
+            i.putExtra("id",activityId)
+            i.putExtra("name",activityName)
+            i.putExtra("duration",formatTime(activityDuration))
+            i.putExtra("done_at","$doneAt")
+            i.putExtra("description",activityDescription)
+            it.context.startActivity(i)
             true
         }
     }
