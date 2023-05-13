@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.timetrack.client.DeleteCliente
+import com.example.timetrack.client.EditCliente
 import com.example.timetrack.client.menu.ui.dashboard.DashboardViewModel
 import com.example.timetrack.databinding.ItemActivityBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -37,17 +38,15 @@ class ActivityViewHolder(view: View) : ViewHolder(view) {
         binding.doneAt.text = "Hecho el: $doneAt"
         binding.description.text = "Descripción: $activityDescription"
 
-        // TODO: CHANGE
-        /*binding.root.setOnClickListener {
-            val i = Intent(it.context,DeleteCliente::class.java)
+        binding.root.setOnClickListener {
+            val i = Intent(it.context,EditCliente::class.java)
             i.putExtra("id",activityId)
             i.putExtra("name",activityName)
-            i.putExtra("duration",formatTime(activityDuration))
+            i.putExtra("duration",activityDuration.toString())
             i.putExtra("done_at","$doneAt")
             i.putExtra("description",activityDescription)
             it.context.startActivity(i)
-            true
-        }*/
+        }
 
         binding.root.setOnLongClickListener {
             val i = Intent(it.context,DeleteCliente::class.java)

@@ -19,7 +19,7 @@ class DeleteCliente : AppCompatActivity() {
         setContentView(binding.root)
 
         //toolBar options
-        title = "wapalizer"
+        title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // getting activity fields
@@ -51,6 +51,15 @@ class DeleteCliente : AppCompatActivity() {
                         .show()
                     startActivity(Intent(this,MainActivity::class.java))
                     finish()
+                }
+                .addOnFailureListener {
+                    Toast
+                        .makeText(
+                            applicationContext,
+                            "No se pudo eliminar la actividad",
+                            Toast.LENGTH_LONG
+                        )
+                        .show()
                 }
         }
 
