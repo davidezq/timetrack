@@ -41,7 +41,8 @@ class DashboardViewModel : ViewModel() {
                         doc.getString("activityDescription") ?: "",
                         doc.getLong("activityDuration") ?: 0,
                         doc.getString("activityName") ?: "",
-                        doc.getDate("doneAt") ?: Date()
+                        doc.getDate("doneAt") ?: Date(),
+                        doc.id
                     )
                     activitiesFirebase.add(clientActivity)
                 }

@@ -34,7 +34,9 @@ class DashboardFragment : Fragment() {
     private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var firebaseAuth: FirebaseAuth
     private fun initRecyclerView() {
-        adapter = ActivityAdapter(emptyList())
+        adapter = ActivityAdapter(
+            activities = emptyList()
+        )
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.recyclerView.adapter = adapter
     }
@@ -57,7 +59,9 @@ class DashboardFragment : Fragment() {
         firebaseAuth = Firebase.auth
 
         dashboardViewModel.activities.observe(viewLifecycleOwner) {
-            binding.recyclerView.adapter = ActivityAdapter(it)
+            binding.recyclerView.adapter = ActivityAdapter(
+                activities = it
+            )
         }
 
         dashboardViewModel.getAllActivities(
@@ -74,6 +78,15 @@ class DashboardFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        dashboardViewModel.getAllActivities(
+            this.requireContext(),
+            Firebase.auth,
+            FirebaseFirestore.getInstance()
+        )
     }
 
     /*fun mostrarDatos(){

@@ -6,5 +6,6 @@ data class ClientActivity(
     var activityDescription:String,
     var activityDuration: Long,
     var activityName: String,
-    var doneAt: Date
+    var doneAt: Date,
+    var id:String
 )

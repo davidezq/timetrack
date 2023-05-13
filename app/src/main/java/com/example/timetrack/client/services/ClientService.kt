@@ -30,12 +30,12 @@ class ClientService(
             .get()
             .addOnSuccessListener { documents ->
                 for (doc in documents) {
-                    Log.d("ClientService", "${doc.getString("activityName")}")
                     var clientACtivity = ClientActivity(
                         doc.getString("activityDescription") ?: "",
                         doc.getLong("activityDuration") ?: 0,
                         doc.getString("activityName") ?: "",
-                        doc.getDate("doneAt") ?: Date()
+                        doc.getDate("doneAt") ?: Date(),
+                        doc.id
                     )
                     activities.add(clientACtivity)
                 }
