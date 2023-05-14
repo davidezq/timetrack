@@ -4,7 +4,9 @@ import android.content.Intent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.timetrack.admin.EditUser
+import com.example.timetrack.admin.UserChart
 import com.example.timetrack.databinding.ItemUsersBinding
+import com.google.firebase.firestore.auth.User
 
 class UsersViewHolder(val view: View):ViewHolder(view) {
     private val binding = ItemUsersBinding.bind(view)
@@ -27,6 +29,11 @@ class UsersViewHolder(val view: View):ViewHolder(view) {
             i.putExtra("profession",profession)
             it.context.startActivity(i)
             true
+        }
+        binding.root.setOnClickListener{
+            val i = Intent(it.context, UserChart::class.java)
+            i.putExtra("id",id)
+            it.context.startActivity(i)
         }
     }
 }
