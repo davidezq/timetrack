@@ -43,7 +43,8 @@ class GalleryViewModel : ViewModel() {
                         .get()
                         .addOnSuccessListener { userInfo ->
                             collector.add(
-                                 User(
+                                User(
+                                    userInfo.id,
                                     userInfo.getString("name")!!,
                                     userInfo.getString("lastName")!!,
                                     userInfo.getString("profession")!!

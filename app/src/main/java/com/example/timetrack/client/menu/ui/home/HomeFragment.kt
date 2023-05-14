@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.timetrack.CustomDialog
+import com.example.timetrack.client.menu.ui.notifications.DatePickerDialog
 import com.example.timetrack.databinding.FragmentHomeBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -73,7 +74,6 @@ class HomeFragment : Fragment(), CustomDialog.CustomDialogListener {
             resetChronometer()
             openDialog(binding.activityTitle.text.toString())
         }
-
         return root
     }
 

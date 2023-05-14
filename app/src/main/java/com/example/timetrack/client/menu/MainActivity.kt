@@ -1,6 +1,8 @@
 package com.example.timetrack.client.menu
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -9,7 +11,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.timetrack.CustomDialog
 import com.example.timetrack.R
+import com.example.timetrack.auth.AuthClientActivity
 import com.example.timetrack.databinding.ActivityMainBinding
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,5 +40,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        Firebase.auth.signOut()
+        startActivity(Intent(this, AuthClientActivity::class.java))
+        Toast.makeText(this,"Sesión cerrada", Toast.LENGTH_LONG).show()
     }
 }

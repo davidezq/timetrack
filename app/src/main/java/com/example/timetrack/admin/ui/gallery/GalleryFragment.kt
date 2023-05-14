@@ -26,7 +26,7 @@ class GalleryFragment : Fragment() {
     private lateinit var adapter: UsersAdapter
     private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var firebaseAuth: FirebaseAuth
-
+    private lateinit var galleryViewModel:GalleryViewModel
     private fun initRecyclerView() {
         adapter = UsersAdapter(emptyList())
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
@@ -38,7 +38,7 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
+        galleryViewModel =
             ViewModelProvider(this).get(GalleryViewModel::class.java)
 
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
@@ -64,5 +64,14 @@ class GalleryFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        galleryViewModel.getAllUsers(
+            this.requireContext(),
+            firebaseAuth,
+            firebaseFirestore
+        )
     }
 }

@@ -16,6 +16,7 @@ class UsersAdapter(private val users: List<User>) : Adapter<UsersViewHolder>() {
         val item = users[position]
 
         holder.render(
+            item.id,
             item.name,
             item.lastName,
             item.profession

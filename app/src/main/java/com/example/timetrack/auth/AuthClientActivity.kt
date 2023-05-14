@@ -98,4 +98,6 @@ class AuthClientActivity : AppCompatActivity() {
             }
 
     }
+    override fun onBackPressed() {
+    }
 }

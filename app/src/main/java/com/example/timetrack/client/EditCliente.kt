@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import com.example.timetrack.R
 import com.example.timetrack.client.menu.MainActivity
@@ -60,7 +61,6 @@ class EditCliente : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         )
                         .show()
-                    startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 }
                 .addOnFailureListener {
@@ -72,6 +72,15 @@ class EditCliente : AppCompatActivity() {
                         )
                         .show()
                 }
+        }
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                 true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
