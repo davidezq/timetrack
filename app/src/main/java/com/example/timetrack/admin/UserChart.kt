@@ -2,11 +2,10 @@ package com.example.timetrack.admin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import com.example.timetrack.R
-import com.example.timetrack.client.menu.ui.notifications.DatePickerDialog
+import com.example.timetrack.DatePickerDialog
 import com.example.timetrack.databinding.ActivityUserChartBinding
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
@@ -14,16 +13,14 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.firebase.Timestamp
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class UserChart : AppCompatActivity() {
-    lateinit var binding:ActivityUserChartBinding
+    lateinit var binding: ActivityUserChartBinding
     lateinit var pieChart: PieChart
     lateinit var pieEntryList: MutableList<PieEntry>
-    lateinit var userId:String
+    lateinit var userId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +28,7 @@ class UserChart : AppCompatActivity() {
         setContentView(binding.root)
 
         //actionBar
-        title=""
+        title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
@@ -111,18 +108,20 @@ class UserChart : AppCompatActivity() {
                     totalJobHours += document.data["activityDuration"].toString().toFloat()
                     pieEntryList.add(
                         PieEntry(
-                            convertMillisToHours(document.data["activityDuration"].toString().toLong()),
+                            convertMillisToHours(
+                                document.data["activityDuration"].toString().toLong()
+                            ),
                             document.data["activityName"].toString()
                         )
                     )
                     // Log.d("waka", "${document.id} => ${document.data}")
                 }
-                if(totalJobHours > jobHours){
+                if (totalJobHours > jobHours) {
                     setUpChart()
                 } else {
                     pieEntryList.add(
                         PieEntry(
-                            convertMillisToHours((jobHours-totalJobHours).toLong()),
+                            convertMillisToHours((jobHours - totalJobHours).toLong()),
                             "No registrada"
                         )
                     )
@@ -147,7 +146,7 @@ class UserChart : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             android.R.id.home -> {
                 finish()
                 true

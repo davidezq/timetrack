@@ -1,4 +1,4 @@
-package com.example.timetrack.client.menu.ui.notifications
+package com.example.timetrack
 
 import android.app.Dialog
 import android.content.Context
@@ -27,6 +27,7 @@ class DatePickerDialog(val listener: (day: Int, month: Int, year: Int) -> Unit) 
             month,
             day
         )
+        picker.datePicker.maxDate = c.timeInMillis
 
         return picker
     }
