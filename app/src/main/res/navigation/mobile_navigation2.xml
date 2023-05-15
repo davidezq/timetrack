@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_add_users" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.timetrack.admin.menu.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_show_users"
+        android:name="com.example.timetrack.admin.menu.ui.gallery.ShowUsersFragment"
+        android:label="@string/menu_show_users"
+        tools:layout="@layout/fragment_show_users" />
 
     <fragment
         android:id="@+id/nav_slideshow"

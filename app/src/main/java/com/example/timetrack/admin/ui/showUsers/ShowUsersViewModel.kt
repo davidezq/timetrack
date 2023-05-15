@@ -3,14 +3,13 @@ package com.example.timetrack.admin.menu.ui.gallery
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.timetrack.admin.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class GalleryViewModel : ViewModel() {
+class ShowUsersViewModel : ViewModel() {
 
     val users = MutableLiveData<List<User>>()
 

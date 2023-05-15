@@ -5,9 +5,9 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_show_users"
+            android:icon="@drawable/ic_menu_show_users"
+            android:title="@string/menu_show_users" />
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"

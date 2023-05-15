@@ -4,21 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.timetrack.admin.ui.list.UsersAdapter
-import com.example.timetrack.client.list.ActivityAdapter
-import com.example.timetrack.databinding.FragmentGalleryBinding
+import com.example.timetrack.databinding.FragmentShowUsersBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
-class GalleryFragment : Fragment() {
+class ShowUsersFragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
+    private var _binding: FragmentShowUsersBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,7 +24,7 @@ class GalleryFragment : Fragment() {
     private lateinit var adapter: UsersAdapter
     private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var galleryViewModel:GalleryViewModel
+    private lateinit var showUsersViewModel:ShowUsersViewModel
     private fun initRecyclerView() {
         adapter = UsersAdapter(emptyList())
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
@@ -38,20 +36,20 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
+        showUsersViewModel =
+            ViewModelProvider(this).get(ShowUsersViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentShowUsersBinding.inflate(inflater, container, false)
 
         initRecyclerView()
         firebaseFirestore = FirebaseFirestore.getInstance()
         firebaseAuth = Firebase.auth
 
-        galleryViewModel.users.observe(viewLifecycleOwner) {
+        showUsersViewModel.users.observe(viewLifecycleOwner) {
             binding.recyclerView.adapter = UsersAdapter(it)
         }
 
-        galleryViewModel.getAllUsers(
+        showUsersViewModel.getAllUsers(
             this.requireContext(),
             firebaseAuth,
             firebaseFirestore
@@ -68,7 +66,7 @@ class GalleryFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        galleryViewModel.getAllUsers(
+        showUsersViewModel.getAllUsers(
             this.requireContext(),
             firebaseAuth,
             firebaseFirestore
