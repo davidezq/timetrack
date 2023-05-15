@@ -1,36 +1,30 @@
-package com.example.timetrack.client.menu.ui.dashboard
+package com.example.timetrack.client.menu.ui.activities
 
-import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.timetrack.client.list.ActivityAdapter
-import com.example.timetrack.client.list.ActivityViewHolder
 import com.example.timetrack.client.models.ClientActivity
-import com.example.timetrack.databinding.FragmentDashboardBinding
+import com.example.timetrack.databinding.FragmentActivitiesBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import java.util.*
 
-class DashboardFragment : Fragment() {
+class ActivitiesFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentActivitiesBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
     private var activities = mutableListOf<ClientActivity>()
     private lateinit var adapter: ActivityAdapter
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var activitiesViewModel: ActivitiesViewModel
     private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var firebaseAuth: FirebaseAuth
     private fun initRecyclerView() {
@@ -46,10 +40,10 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        activitiesViewModel =
+            ViewModelProvider(this).get(ActivitiesViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentActivitiesBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
 
@@ -58,13 +52,13 @@ class DashboardFragment : Fragment() {
         firebaseFirestore = FirebaseFirestore.getInstance()
         firebaseAuth = Firebase.auth
 
-        dashboardViewModel.activities.observe(viewLifecycleOwner) {
+        activitiesViewModel.activities.observe(viewLifecycleOwner) {
             binding.recyclerView.adapter = ActivityAdapter(
                 activities = it
             )
         }
 
-        dashboardViewModel.getAllActivities(
+        activitiesViewModel.getAllActivities(
             this.requireContext(),
             Firebase.auth,
             FirebaseFirestore.getInstance()
@@ -82,7 +76,7 @@ class DashboardFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        dashboardViewModel.getAllActivities(
+        activitiesViewModel.getAllActivities(
             this.requireContext(),
             Firebase.auth,
             FirebaseFirestore.getInstance()

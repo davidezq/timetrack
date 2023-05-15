@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_add_activity_black_24dp"
         android:title="@string/title_home" />
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_activities"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_dashboard" />
 

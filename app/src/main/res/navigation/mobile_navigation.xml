@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_add_activity" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.timetrack.client.menu.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_activities"
+        android:name="com.example.timetrack.client.menu.ui.activities.ActivitiesFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_activities" />
 
     <fragment
         android:id="@+id/navigation_notifications"

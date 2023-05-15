@@ -8,7 +8,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.timetrack.client.DeleteCliente
 import com.example.timetrack.client.EditCliente
-import com.example.timetrack.client.menu.ui.dashboard.DashboardViewModel
 import com.example.timetrack.databinding.ItemActivityBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth

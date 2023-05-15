@@ -1,24 +1,16 @@
-package com.example.timetrack.client.menu.ui.dashboard
+package com.example.timetrack.client.menu.ui.activities
 
-import android.content.ContentProvider
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.timetrack.client.models.ClientActivity
-import com.example.timetrack.client.services.ClientService
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.launch
 import java.util.*
 
-class DashboardViewModel : ViewModel() {
+class ActivitiesViewModel : ViewModel() {
     val activities = MutableLiveData<List<ClientActivity>>()
 
     fun getAllActivities(context:Context,firebaseAuth: FirebaseAuth,firebaseFirestore: FirebaseFirestore) {
