@@ -20,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class HomeFragment : Fragment() {
+class AddUserFragment : Fragment() {
 
     private var _binding: FragmentAddUsersBinding? = null
 
@@ -36,8 +36,8 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        val addUserViewModel =
+            ViewModelProvider(this).get(AddUserViewModel::class.java)
 
         _binding = FragmentAddUsersBinding.inflate(inflater, container, false)
 
