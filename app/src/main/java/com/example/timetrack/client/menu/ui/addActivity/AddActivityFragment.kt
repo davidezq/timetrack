@@ -1,4 +1,4 @@
-package com.example.timetrack.client.menu.ui.home
+package com.example.timetrack.client.menu.ui.addActivity
 
 import android.os.Bundle
 import android.os.SystemClock
@@ -9,15 +9,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.timetrack.CustomDialog
-import com.example.timetrack.databinding.FragmentHomeBinding
+import com.example.timetrack.databinding.FragmentAddActivityBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
 
-class HomeFragment : Fragment(), CustomDialog.CustomDialogListener {
+class AddActivityFragment : Fragment(), CustomDialog.CustomDialogListener {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentAddActivityBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -32,10 +32,10 @@ class HomeFragment : Fragment(), CustomDialog.CustomDialogListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        val addActivityViewModel =
+            ViewModelProvider(this).get(AddActivityViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentAddActivityBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
 

@@ -1,10 +1,9 @@
-package com.example.timetrack.client.menu.ui.home
+package com.example.timetrack.client.menu.ui.addActivity
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class AddActivityViewModel : ViewModel() {
     val time = MutableLiveData<Long>()
 
 }

@@ -9,7 +9,6 @@
 
     <string name="menu_home">Crear usuario</string>
     <string name="menu_show_users">Mostrar usuarios</string>
-    <string name="menu_slideshow">Slideshow</string>
 
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
@@ -21,7 +20,7 @@
     <string name="title_Create_Account">Crear Cuenta</string>
     <string name="message_account_created">Cuenta creada</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Agregar actividad</string>
+    <string name="title_dashboard">Actividades</string>
+    <string name="title_notifications">Gráfico</string>
 </resources>
