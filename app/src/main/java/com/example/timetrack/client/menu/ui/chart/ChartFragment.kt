@@ -1,4 +1,4 @@
-package com.example.timetrack.client.menu.ui.notifications
+package com.example.timetrack.client.menu.ui.chart
 
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.timetrack.DatePickerDialog
 import com.example.timetrack.R
-import com.example.timetrack.databinding.FragmentNotificationsBinding
+import com.example.timetrack.databinding.FragmentChartBinding
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
@@ -22,9 +22,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
 
-class NotificationsFragment : Fragment() {
+class ChartFragment : Fragment() {
 
-    private var _binding: FragmentNotificationsBinding? = null
+    private var _binding: FragmentChartBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -37,10 +37,10 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+        val chartViewModel =
+            ViewModelProvider(this).get(ChartViewModel::class.java)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentChartBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         binding.seachDate.setOnClickListener {
@@ -70,16 +70,13 @@ class NotificationsFragment : Fragment() {
         pieChart.data = pieData
         pieChart.description.isEnabled = false
         pieChart.invalidate()
-
-
     }
 
     fun setChartValues() {
-        pieEntryList.add(PieEntry(8f, "no registrada"))
+        pieEntryList.add(PieEntry(8f, getString(R.string.untracked)))
     }
 
     fun mostrarActividades(minDate: Long, maxDate: Long) {
-        Log.d("waka", "ejecuta")
         /*val minDate = Calendar.getInstance().apply {
             set(Calendar.YEAR, 2023)
             set(Calendar.MONTH, Calendar.MAY)
@@ -125,7 +122,7 @@ class NotificationsFragment : Fragment() {
                     pieEntryList.add(
                         PieEntry(
                             convertMillisToHours((jobHours-totalJobHours).toLong()),
-                            "No registrada"
+                            getString(R.string.untracked)
                         )
                     )
                     setUpChart()
@@ -134,7 +131,7 @@ class NotificationsFragment : Fragment() {
             .addOnFailureListener { exception ->
                 Toast.makeText(
                     context,
-                    "Error al obtener documentos: $exception",
+                    "${getString(R.string.error_get_documents)}: $exception",
                     Toast.LENGTH_LONG
                 )
             }

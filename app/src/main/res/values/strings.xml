@@ -2,25 +2,106 @@
     <string name="app_name">Timetrack</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Logout</string>
 
-    <string name="menu_home">Crear usuario</string>
-    <string name="menu_show_users">Mostrar usuarios</string>
+    <string name="menu_home">Create user</string>
+    <string name="menu_show_users">Show user</string>
 
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
-    <string name="hint_repeat_password">Repetir password</string>
+    <string name="hint_repeat_password">Repit password</string>
 
-    <string name="btn_sign_in">Crear cuenta</string>
-    <string name="btn_log_in">Iniciar sesión</string>
+    <string name="btn_sign_in">Create account</string>
+    <string name="btn_log_in">Sign in</string>
 
-    <string name="title_Create_Account">Crear Cuenta</string>
-    <string name="message_account_created">Cuenta creada</string>
+    <string name="title_Create_Account">Create account</string>
+    <string name="message_account_created">account created</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">Agregar actividad</string>
-    <string name="title_dashboard">Actividades</string>
-    <string name="title_notifications">Gráfico</string>
+    <string name="title_home">Add activity</string>
+    <string name="title_dashboard">Activities</string>
+    <string name="title_notifications">Chart</string>
+
+    <!--Admin-->
+    <!--Admin MainActivity-->
+    <string name="session_closed">Session closed</string>
+
+    <!--Admin User chart-->
+    <string name="untracked">Untracked</string>
+    <string name="not_registered">Not registered</string>
+    <string name="error_get_documents">Error to get the documents</string>
+
+    <!-- Admin AddUserFragment -->
+    <string name="name_required">Name is required</string>
+    <string name="lastname_required">Last name is required</string>
+    <string name="email_wrong">Email wrong</string>
+    <string name="password_limit">Password must be greater than 6 characters</string>
+    <string name="password_not_same">The password must be equal to password field</string>
+    <string name="profession_required">Profession is required</string>
+    <string name="advice_dialog">After to create a user, it will sign out</string>
+    <string name="accept">Accept</string>
+
+    <!-- Admin UsersViewHolder -->
+    <string name="name">Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="profession">Profession</string>
+
+    <!-- Admin ShowUsersViewModel -->
+    <string name="error_get_users">Error to get the users</string>
+
+    <!--Admin EditUser-->
+    <string name="user_edited">User edited</string>
+    <string name="could_not_edit_user">Could not edit the user</string>
+
+    <!-- Auth -->
+    <!-- Auth AuthClient -->
+    <string name="required">Required</string>
+    <string name="welcome">Welcome</string>
+
+    <!-- Client -->
+    <!-- Client list -->
+    <string name="delete_activity">Delete activity</string>
+    <string name="do_you_want_to_delete_the_activity">Do you want to delete the activity?</string>
+    <string name="description">Description</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- Client ActivityViewHolder -->
+    <string name="duration">Duration</string>
+    <string name="done_at">Done at</string>
+    <string name="delete_account">Delete account</string>
+
+    <!-- Client menu ui addActivity -->
+    <string name="title_required">Title required</string>
+    <string name="unauthorized">Unauthorized</string>
+    <string name="activity_saved">Activity saved</string>
+
+    <!-- Client DeleteClient -->
+    <string name="activity_deleted">Activity deleted</string>
+    <string name="error_activity_deleted">The activity could not be deleted.</string>
+
+    <!-- Client EditClient -->
+    <string name="activity_edited">Activity edited</string>
+    <string name="error_activity_edited">The activity could not be edited</string>
+
+    <!-- customDialog -->
+    <string name="save">Save</string>
+
+
+
+    <string name="delete">Delete</string>
+    <string name="edit_activity">Edit Activity</string>
+    <string name="edit">Edit</string>
+    <string name="edit_user">Edit user</string>
+    <string name="daily_statistics">Daily statistics</string>
+    <string name="activity_title">Activity title</string>
+    <string name="hint_activity_title_example">Complete the login</string>
+    <string name="start">Start</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Stop</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="repit_password">Repit password</string>
+    <string name="create">Create</string>
+    <string name="title">Title</string>
 </resources>

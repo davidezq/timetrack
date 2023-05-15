@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import com.example.timetrack.R
 import com.example.timetrack.client.menu.MainActivity
 import com.example.timetrack.databinding.ActivityDeleteClienteBinding
 import com.google.firebase.auth.ktx.auth
@@ -46,7 +47,7 @@ class DeleteCliente : AppCompatActivity() {
                     Toast
                         .makeText(
                             applicationContext,
-                            "Actividad eliminada",
+                            getString(R.string.activity_deleted),
                             Toast.LENGTH_LONG
                         )
                         .show()
@@ -57,7 +58,7 @@ class DeleteCliente : AppCompatActivity() {
                     Toast
                         .makeText(
                             applicationContext,
-                            "No se pudo eliminar la actividad",
+                            getString(R.string.error_activity_deleted),
                             Toast.LENGTH_LONG
                         )
                         .show()

@@ -30,7 +30,7 @@ class AddUserFragment : Fragment() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var navHeaderBinding: NavHeaderMainBinding
-    private lateinit var userAdminId:String
+    private lateinit var userAdminId: String
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -71,27 +71,27 @@ class AddUserFragment : Fragment() {
     private fun validateForm(): Int {
         var errors = 0
         if (binding.userName.text.toString().isEmpty()) {
-            binding.userName.error = "Name is required"
+            binding.userName.error = getString(R.string.name_required)
             errors++
         }
         if (binding.userLastName.text.toString().isEmpty()) {
-            binding.userLastName.error = "Last name is required"
+            binding.userLastName.error = getString(R.string.lastname_required)
             errors++
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(binding.userEmail.text.toString()).matches()) {
-            binding.userEmail.error = "Email no válido"
+            binding.userEmail.error = getString(R.string.email_wrong)
             errors++
         }
         if (binding.userPassword.text.toString().length < 6) {
-            binding.userPassword.error = "Password debe ser mayor a 6 caracteres"
+            binding.userPassword.error = getString(R.string.password_limit)
             errors++
         }
         if (binding.userRepitPassword.text.toString() != binding.userPassword.text.toString()) {
-            binding.userRepitPassword.error = "The password must be equal to password field"
+            binding.userRepitPassword.error = getString(R.string.password_not_same)
             errors++
         }
         if (binding.userProfession.text.toString().isEmpty()) {
-            binding.userProfession.error = "The profession is required"
+            binding.userProfession.error = getString(R.string.profession_required)
             errors++
         }
         return errors
@@ -143,10 +143,10 @@ class AddUserFragment : Fragment() {
             }
     }
 
-    private fun adviceDialog(){
+    private fun adviceDialog() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setMessage("Después de crear al usuario, se cerrará la sesión")
-        builder.setPositiveButton("Aceptar", null)
+        builder.setMessage(getString(R.string.advice_dialog))
+        builder.setPositiveButton(getString(R.string.accept), null)
         val dialog = builder.create()
         dialog.show()
     }

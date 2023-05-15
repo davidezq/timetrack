@@ -27,11 +27,9 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_add_activity, R.id.navigation_activities, R.id.navigation_notifications
+                R.id.navigation_add_activity, R.id.navigation_activities, R.id.navigation_chart
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -41,6 +39,6 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         Firebase.auth.signOut()
         startActivity(Intent(this, AuthClientActivity::class.java))
-        Toast.makeText(this,"Sesión cerrada", Toast.LENGTH_LONG).show()
+        Toast.makeText(this,getString(R.string.session_closed), Toast.LENGTH_LONG).show()
     }
 }

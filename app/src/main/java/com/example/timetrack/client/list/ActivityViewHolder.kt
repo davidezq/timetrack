@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.timetrack.R
 import com.example.timetrack.client.DeleteCliente
 import com.example.timetrack.client.EditCliente
 import com.example.timetrack.databinding.ItemActivityBinding
@@ -16,7 +17,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.Date
 
-class ActivityViewHolder(view: View) : ViewHolder(view) {
+class ActivityViewHolder(val view: View) : ViewHolder(view) {
 
     private val binding = ItemActivityBinding.bind(view)
     lateinit var firebaseAuth: FirebaseAuth
@@ -32,10 +33,10 @@ class ActivityViewHolder(view: View) : ViewHolder(view) {
         firebaseAuth = Firebase.auth
         firebaseFirestore = Firebase.firestore
 
-        binding.name.text = "Nombre: $activityName"
-        binding.duration.text = "Duración: ${formatTime(activityDuration)}"
-        binding.doneAt.text = "Hecho el: $doneAt"
-        binding.description.text = "Descripción: $activityDescription"
+        binding.name.text = "${view.context.getString(R.string.name)}: $activityName"
+        binding.duration.text = "${view.context.getString(R.string.duration)}: ${formatTime(activityDuration)}"
+        binding.doneAt.text = "${view.context.getString(R.string.done_at)}: $doneAt"
+        binding.description.text = "${view.context.getString(R.string.description)}: $activityDescription"
 
         binding.root.setOnClickListener {
             val i = Intent(it.context,EditCliente::class.java)
@@ -59,9 +60,9 @@ class ActivityViewHolder(view: View) : ViewHolder(view) {
         }
     }
 
-    fun showDialog(view: View, id: String, name: String, description: String) {
+    /*fun showDialog(view: View, id: String, name: String, description: String) {
         val builder = AlertDialog.Builder(view.context)
-        builder.setTitle("Eliminar activity")
+        builder.setTitle(view.context.getString(R.string.delete_account))
         builder.setMessage(
             "¿Quieres eliminar la actividad?" +
                     "\nNombre: $name" +
@@ -82,7 +83,8 @@ class ActivityViewHolder(view: View) : ViewHolder(view) {
             }
             .create()
             .show()
-    }
+    }*/
+
     fun formatTime(milliseconds: Long): String {
         val seconds = (milliseconds / 1000).toInt() % 60
         val minutes = (milliseconds / (1000 * 60) % 60).toInt()

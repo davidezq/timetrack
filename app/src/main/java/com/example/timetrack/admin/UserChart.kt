@@ -61,7 +61,7 @@ class UserChart : AppCompatActivity() {
     }
 
     fun setChartValues() {
-        pieEntryList.add(PieEntry(8f, "no registrada"))
+        pieEntryList.add(PieEntry(8f, getString(R.string.untracked)))
     }
 
     fun showDatePickerDialog() {
@@ -122,7 +122,7 @@ class UserChart : AppCompatActivity() {
                     pieEntryList.add(
                         PieEntry(
                             convertMillisToHours((jobHours - totalJobHours).toLong()),
-                            "No registrada"
+                            getString(R.string.not_registered)
                         )
                     )
                     setUpChart()
@@ -131,7 +131,7 @@ class UserChart : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Toast.makeText(
                     this,
-                    "Error al obtener documentos: $exception",
+                    "${getString(R.string.error_get_documents)}: $exception",
                     Toast.LENGTH_LONG
                 )
             }

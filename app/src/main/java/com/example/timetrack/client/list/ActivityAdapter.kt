@@ -37,15 +37,15 @@ class ActivityAdapter(
         return activities.size
     }
 
-    fun showDialog(view: View, id: String, name: String, description: String) {
+    /*fun showDialog(view: View, id: String, name: String, description: String) {
         val builder = AlertDialog.Builder(view.context)
-        builder.setTitle("Eliminar activity")
+        builder.setTitle(view.context.getString(R.string.delete_activity))
         builder.setMessage(
-            "¿Quieres eliminar la actividad?" +
-                    "\nNombre: $name" +
-                    "\nDescripción: $description"
+            view.context.getString(R.string.do_you_want_to_delete_the_activity) +
+                    "\n${view.context.getString(R.string.name)}: $name" +
+                    "\n${view.context.getString(R.string.description)}: $description"
         )
-            .setPositiveButton("Yes") { _, _ ->
+            .setPositiveButton(view.context.getString(R.string.yes)) { _, _ ->
                 val uid = Firebase.auth.currentUser?.uid
                 Firebase.firestore.collection("users/$uid/activities")
                     .document(id)
@@ -55,10 +55,9 @@ class ActivityAdapter(
                             .show()
                     }
             }
-            .setNegativeButton("No") { _, _ ->
-                Log.d("probando", "no")
+            .setNegativeButton(view.context.getString(R.string.no)) { _, _ ->
             }
             .create()
             .show()
-    }
+    }*/
 }

@@ -9,7 +9,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crear usuario"
+        android:text="@string/menu_home"
         android:textAlignment="center"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +36,7 @@
             android:id="@+id/lblName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name" />
+            android:text="@string/name" />
 
         <EditText
             android:id="@+id/user_name"
@@ -52,7 +52,7 @@
             android:id="@+id/lblLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lastname" />
+            android:text="@string/last_name" />
 
         <EditText
             android:id="@+id/user_last_name"
@@ -68,7 +68,7 @@
             android:id="@+id/lblEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="@string/email"
             app:layout_constraintVertical_bias="0.17000002" />
 
         <EditText
@@ -85,7 +85,7 @@
             android:id="@+id/lblPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password" />
+            android:text="@string/password" />
 
         <EditText
             android:id="@+id/user_password"
@@ -100,7 +100,7 @@
             android:id="@+id/lblRepitPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Repit Password" />
+            android:text="@string/repit_password" />
 
         <EditText
             android:id="@+id/user_repit_password"
@@ -115,7 +115,7 @@
             android:id="@+id/lblProfession"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profession" />
+            android:text="@string/profession" />
 
         <EditText
             android:id="@+id/user_profession"
@@ -130,7 +130,7 @@
             android:id="@+id/btnCreate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create" />
+            android:text="@string/create" />
     </LinearLayout>
 
     <ProgressBar

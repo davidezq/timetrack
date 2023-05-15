@@ -10,7 +10,7 @@
         android:id="@+id/lblTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Editar usuario"
+        android:text="@string/edit_user"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
             android:id="@+id/lbl_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name:" />
+            android:text="@string/name" />
 
         <EditText
             android:id="@+id/user_name"
@@ -48,7 +48,7 @@
             android:id="@+id/lbl_last_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Last name:" />
+            android:text="@string/last_name" />
 
         <EditText
             android:id="@+id/user_last_name"
@@ -62,7 +62,7 @@
             android:id="@+id/lbl_profession"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profession:" />
+            android:text="@string/profession" />
 
         <EditText
             android:id="@+id/user_profession"
@@ -75,7 +75,7 @@
             android:id="@+id/btnEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Editar"
+            android:text="@string/edit"
             android:backgroundTint="@color/teal_700"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,7 @@ class CustomDialog(val dialogTitle: String) : AppCompatDialogFragment() {
         val binding = LayoutDialogBinding.bind(view)
         builder.setView(view)
             .setTitle(dialogTitle)
-            .setPositiveButton("Guardar") { dialogInterface, i ->
+            .setPositiveButton(getString(R.string.save)) { dialogInterface, i ->
                 listener?.applyDescription(binding.editDescription.text.toString())
             }
         return builder.create()

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.timetrack.CustomDialog
+import com.example.timetrack.R
 import com.example.timetrack.databinding.FragmentAddActivityBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -45,7 +46,7 @@ class AddActivityFragment : Fragment(), CustomDialog.CustomDialogListener {
         binding.activityTitle.text.toString()
         binding.start.setOnClickListener {
             if (binding.activityTitle.text.toString().isEmpty()) {
-                binding.activityTitle.error = "Agregue un titulo a la actividad"
+                binding.activityTitle.error = getString(R.string.title_required)
                 return@setOnClickListener
             }
 
@@ -118,7 +119,7 @@ class AddActivityFragment : Fragment(), CustomDialog.CustomDialogListener {
         val activityTitle = binding.activityTitle.text.toString()
 
         if (uid.isNullOrEmpty()) {
-            Toast.makeText(context, "Unauthorized", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.unauthorized), Toast.LENGTH_SHORT).show()
             return
         }
         firestore
@@ -133,7 +134,7 @@ class AddActivityFragment : Fragment(), CustomDialog.CustomDialogListener {
                     "doneAt" to Date()
                 )
             ).addOnSuccessListener {
-                Toast.makeText(context, "Actividad guardada", Toast.LENGTH_SHORT)
+                Toast.makeText(context, getString(R.string.activity_saved), Toast.LENGTH_SHORT)
                     .show()
                 binding.activityTitle.text.clear()
             }

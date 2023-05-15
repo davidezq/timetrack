@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat
 
 class EditCliente : AppCompatActivity() {
     private lateinit var binding: ActivityEditClienteBinding
-    @SuppressLint("SimpleDateFormat")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditClienteBinding.inflate(layoutInflater)
@@ -57,7 +57,7 @@ class EditCliente : AppCompatActivity() {
                     Toast
                         .makeText(
                             applicationContext,
-                            "Actividad editada",
+                            getString(R.string.activity_edited),
                             Toast.LENGTH_LONG
                         )
                         .show()
@@ -67,7 +67,7 @@ class EditCliente : AppCompatActivity() {
                     Toast
                         .makeText(
                             applicationContext,
-                            "No se pudo editar la actividad",
+                            getString(R.string.error_activity_edited),
                             Toast.LENGTH_LONG
                         )
                         .show()

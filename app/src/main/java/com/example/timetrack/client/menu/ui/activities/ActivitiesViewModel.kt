@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.timetrack.R
 import com.example.timetrack.client.models.ClientActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -17,7 +18,6 @@ class ActivitiesViewModel : ViewModel() {
         var activitiesFirebase = mutableListOf<ClientActivity>()
 
         val uid = firebaseAuth.currentUser?.uid
-        Log.d("ClientService", "$uid")
 
         if (uid.isNullOrEmpty()) {
             activities.postValue(emptyList())
@@ -44,7 +44,7 @@ class ActivitiesViewModel : ViewModel() {
             }.addOnFailureListener { exception ->
                 Toast.makeText(
                     context,
-                    "Error al obtener documentos: $exception",
+                    "${context.getString(R.string.error_get_documents)} $exception",
                     Toast.LENGTH_LONG
                 )
             }

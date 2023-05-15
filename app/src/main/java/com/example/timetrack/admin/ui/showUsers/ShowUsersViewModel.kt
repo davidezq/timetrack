@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.timetrack.R
 import com.example.timetrack.admin.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -22,7 +23,6 @@ class ShowUsersViewModel : ViewModel() {
         var usersDB = mutableListOf<String>()
         var collector = mutableListOf<User>()
         val uid = firebaseAuth.currentUser?.uid
-        Log.d("UsersService", "$uid")
 
         if (uid.isNullOrEmpty()) {
             users.postValue(emptyList())
@@ -49,14 +49,13 @@ class ShowUsersViewModel : ViewModel() {
                                     userInfo.getString("profession")!!
                                 )
                             )
-                            Log.d("UsersService", "$collector")
                             users.postValue(collector)
                         }
                 }
             }.addOnFailureListener { exception ->
                 Toast.makeText(
                     context,
-                    "Error al obtener los usuarios: $exception",
+                    "${context.getString(R.string.error_get_users)}: $exception",
                     Toast.LENGTH_LONG
                 )
             }

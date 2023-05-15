@@ -14,7 +14,7 @@
         android:clickable="false"
         android:focusable="false"
         android:textAlignment="center"
-        android:text="Estadística por día"/>
+        android:text="@string/daily_statistics"/>
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chart"

@@ -3,6 +3,7 @@ package com.example.timetrack.client.services
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
+import com.example.timetrack.R
 import com.example.timetrack.client.models.ClientActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -42,7 +43,7 @@ class ClientService(
             }.addOnFailureListener { exception ->
                 Toast.makeText(
                     context,
-                    "Error al obtener documentos: $exception",
+                    "${context.getString(R.string.error_get_documents)}: $exception",
                     Toast.LENGTH_LONG
                 )
             }

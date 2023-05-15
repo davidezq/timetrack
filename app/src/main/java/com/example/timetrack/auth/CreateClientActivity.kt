@@ -16,11 +16,10 @@ class CreateClientActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         // ActionBar options
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
 
         super.onCreate(savedInstanceState)
-        // setContentView(R.layout.activity_create_client)
         binding = ActivityCreateClientBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

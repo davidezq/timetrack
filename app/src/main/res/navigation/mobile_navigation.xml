@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_activities" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.timetrack.client.menu.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_chart"
+        android:name="com.example.timetrack.client.menu.ui.chart.ChartFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_chart" />
 </navigation>

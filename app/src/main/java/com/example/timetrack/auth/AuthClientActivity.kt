@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.view.isVisible
+import com.example.timetrack.R
 import com.example.timetrack.client.menu.MainActivity
 import com.example.timetrack.databinding.ActivityAuthClientBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -52,14 +53,13 @@ class AuthClientActivity : AppCompatActivity() {
         var errors = 0
         for (editText in editTexts) {
             if (editText.inputType == InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS) {
-                Log.d("inputTye", "Entro en el if")
                 if (Patterns.EMAIL_ADDRESS.matcher(editText.text.toString()).matches()) {
-                    editText.error = "Email wrong"
+                    editText.error = getString(R.string.email_wrong)
                     errors++
                 }
             }
             if (editText.text.toString().isEmpty()) {
-                editText.error = "se requiere ${editText.hint.toString()}"
+                editText.error = "${editText.hint.toString()} ${getString(R.string.required)}"
                 errors++
                 continue
             }
@@ -77,15 +77,23 @@ class AuthClientActivity : AppCompatActivity() {
                     .collection("admins")
                     .get()
                     .addOnSuccessListener { documents ->
-                        val admins = documents.map { it.id  }
+                        val admins = documents.map { it.id }
                         if (admins.contains(user?.uid)) {
                             val i = Intent(this, AdminMainActivity::class.java)
-                            i.putExtra("email",user?.email)
-                            Toast.makeText(this.baseContext, "Welcome ${user.email}", Toast.LENGTH_LONG).show()
+                            i.putExtra("email", user?.email)
+                            Toast.makeText(
+                                this.baseContext,
+                                "${getString(R.string.welcome)} ${user.email}",
+                                Toast.LENGTH_LONG
+                            ).show()
                             startActivity(i)
                         } else {
                             val i = Intent(this, MainActivity::class.java)
-                            Toast.makeText(this.baseContext, "Welcome ${user.email}", Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this.baseContext,
+                                "${getString(R.string.welcome)} ${user.email}",
+                                Toast.LENGTH_LONG
+                            ).show()
                             startActivity(i)
                         }
                         binding.etEmail.text.clear()
@@ -100,6 +108,7 @@ class AuthClientActivity : AppCompatActivity() {
             }
 
     }
+
     override fun onBackPressed() {
     }
 }

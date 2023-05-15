@@ -62,6 +62,6 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         Firebase.auth.signOut()
         startActivity(Intent(this,AuthClientActivity::class.java))
-        Toast.makeText(this,"Sesión cerrada",Toast.LENGTH_LONG).show()
+        Toast.makeText(this,getString(R.string.session_closed),Toast.LENGTH_LONG).show()
     }
 }

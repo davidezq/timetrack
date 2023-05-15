@@ -1,15 +1,13 @@
 package com.example.timetrack.admin
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
-import com.example.timetrack.client.menu.MainActivity
+import com.example.timetrack.R
 import com.example.timetrack.databinding.ActivityEditUserBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import com.google.firebase.ktx.Firebase
 
 class EditUser : AppCompatActivity() {
     private lateinit var binding: ActivityEditUserBinding
@@ -50,7 +48,7 @@ class EditUser : AppCompatActivity() {
                     Toast
                         .makeText(
                             applicationContext,
-                            "Usuario editado",
+                            getString(R.string.user_edited),
                             Toast.LENGTH_LONG
                         )
                         .show()
@@ -59,7 +57,7 @@ class EditUser : AppCompatActivity() {
                     Toast
                         .makeText(
                             applicationContext,
-                            "No se pudo editar al usuario",
+                            getString(R.string.could_not_edit_user),
                             Toast.LENGTH_LONG
                         )
                         .show()

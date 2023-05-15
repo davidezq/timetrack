@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Timetrack</string>
+    <string name="navigation_drawer_open">Abrir panel de navegación</string>
+    <string name="navigation_drawer_close">Cerrar panel de navegación</string>
+    <string name="nav_header_desc">Encabezado de navegación</string>
+    <string name="action_settings">Cerrar sesión</string>
+
+    <string name="menu_home">Crear usuario</string>
+    <string name="menu_show_users">Mostrar usuarios</string>
+
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_repeat_password">Repetir contraseña</string>
+
+    <string name="btn_sign_in">Crear cuenta</string>
+    <string name="btn_log_in">Iniciar sesión</string>
+
+    <string name="title_Create_Account">Crear cuenta</string>
+    <string name="message_account_created">Cuenta creada</string>
+    <string name="title_activity_main">Actividad principal</string>
+    <string name="title_home">Agregar actividad</string>
+    <string name="title_dashboard">Actividades</string>
+    <string name="title_notifications">Gráfico</string>
+
+    <!--Admin-->
+    <!--Admin MainActivity-->
+    <string name="session_closed">Sesión cerrada</string>
+
+    <!--Admin User chart-->
+    <string name="untracked">Sin seguimiento</string>
+    <string name="not_registered">No registrado</string>
+    <string name="error_get_documents">Error al obtener los documentos</string>
+
+    <!-- Admin AddUserFragment -->
+    <string name="name_required">Se requiere el nombre</string>
+    <string name="lastname_required">Se requiere el apellido</string>
+    <string name="email_wrong">Correo electrónico incorrecto</string>
+    <string name="password_limit">La contraseña debe tener más de 6 caracteres</string>
+    <string name="password_not_same">La contraseña debe ser igual al campo de contraseña</string>
+    <string name="profession_required">Se requiere la profesión</string>
+    <string name="advice_dialog">Después de crear un usuario, se cerrará la sesión</string>
+    <string name="accept">Aceptar</string>
+
+    <!-- Admin UsersViewHolder -->
+    <string name="name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="profession">Profesión</string>
+
+    <!-- Admin ShowUsersViewModel -->
+    <string name="error_get_users">Error al obtener los usuarios</string>
+
+    <!--Admin EditUser-->
+    <string name="user_edited">Usuario editado</string>
+    <string name="could_not_edit_user">No se pudo editar el usuario</string>
+
+    <!-- Auth -->
+    <!-- Auth AuthClient -->
+    <string name="required">Requerido</string>
+    <string name="welcome">Bienvenido</string>
+
+    <!-- Client -->
+    <!-- Client list -->
+    <string name="delete_activity">Eliminar actividad</string>
+    <string name="do_you_want_to_delete_the_activity">¿Desea eliminar la actividad?</string>
+    <string name="description">Descripción</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+
+    <!-- Client ActivityViewHolder -->
+    <string name="duration">Duración</string>
+    <string name="done_at">Realizado el</string>
+    <string name="delete_account">Eliminar cuenta</string>
+
+    <!-- Client menu ui addActivity -->
+    <string name="title_required">Título requerido</string>
+    <string name="unauthorized">No autorizado</string>
+    <string name="activity_saved">Actividad guardada</string>
+
+    <!-- Client DeleteClient -->
+    <string name="activity_deleted">Actividad eliminada</string>
+    <string name="error_activity_deleted">No se pudo eliminar la actividad</string>
+
+    <!-- Client EditClient -->
+    <string name="activity_edited">Actividad editada</string>
+    <string name="error_activity_edited">No se pudo editar la actividad</string>
+
+    <!-- customDialog -->
+    <string name="save">Guardar</string>
+
+    <string name="delete">Eliminar</string>
+    <string name="edit_activity">Editar actividad</string>
+    <string name="edit">Editar</string>
+    <string name="edit_user">Editar usuario</string>
+    <string name="daily_statistics">Estadísticas diarias</string>
+    <string name="activity_title">Título de la actividad</string>
+    <string name="hint_activity_title_example">Completa el inicio de sesión</string>
+    <string name="start">Iniciar</string>
+    <string name="pause">Pausa</string>
+    <string name="stop">Detener</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="repit_password">Repetir contraseña</string>
+    <string name="create">Crear</string>
+    <string name="title">Título</string>
+</resources>

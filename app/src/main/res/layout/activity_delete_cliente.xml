@@ -10,7 +10,7 @@
         android:id="@+id/lbl_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¿Desea borrar la siguiente actividad?"
+        android:text="@string/do_you_want_to_delete_the_activity"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
             android:id="@+id/lbl_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nombre:" />
+            android:text="@string/name" />
 
         <TextView
             android:id="@+id/activity_name"
@@ -46,7 +46,7 @@
             android:id="@+id/lbl_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Duración:" />
+            android:text="@string/duration" />
 
         <TextView
             android:id="@+id/activity_duration"
@@ -60,7 +60,7 @@
             android:id="@+id/lbl_done_at"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hecho el:" />
+            android:text="@string/done_at" />
 
         <TextView
             android:id="@+id/activity_done_at"
@@ -73,7 +73,7 @@
             android:id="@+id/lbl_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Descripción:" />
+            android:text="@string/description" />
 
         <TextView
             android:id="@+id/activiy_description"
@@ -87,6 +87,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/red"
-            android:text="Borrar"/>
+            android:text="@string/delete"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
