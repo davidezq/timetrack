@@ -1,21 +1,21 @@
 package com.example.timetrack.admin.menu.ui.home
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.timetrack.R
-import com.example.timetrack.auth.AuthClientActivity
 import com.example.timetrack.databinding.FragmentAddUsersBinding
 import com.example.timetrack.databinding.NavHeaderMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -30,6 +30,7 @@ class HomeFragment : Fragment() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var navHeaderBinding: NavHeaderMainBinding
+    private lateinit var userAdminId:String
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,9 +44,12 @@ class HomeFragment : Fragment() {
         firebaseAuth = Firebase.auth
         firebaseFirestore = Firebase.firestore
 
+        userAdminId = firebaseAuth.uid!!
+
         binding.btnCreate.setOnClickListener {
             val errors = validateForm()
             if (errors != 0) return@setOnClickListener
+            adviceDialog()
             CreateAccount(
                 binding.userName.text.toString(),
                 binding.userLastName.text.toString(),
@@ -100,11 +104,12 @@ class HomeFragment : Fragment() {
         password: String,
         profession: String
     ) {
+        binding.progressBar.isVisible = true
         firebaseAuth.createUserWithEmailAndPassword(email, password)
-            .addOnSuccessListener {
+            .addOnSuccessListener { newUser ->
                 firebaseFirestore
                     .collection("users")
-                    .document(it.user?.uid.toString())
+                    .document(newUser.user?.uid.toString())
                     .set(
                         hashMapOf(
                             "name" to name,
@@ -112,19 +117,37 @@ class HomeFragment : Fragment() {
                             "profession" to profession
                         )
                     )
-                    .addOnSuccessListener {
-                        Toast.makeText(
-                            this.context,
-                            getString(R.string.message_account_created),
-                            Toast.LENGTH_LONG
-                        )
-                            .show()
-                    }
-
             }
             .addOnFailureListener {
                 Toast.makeText(this.context, "Error: ${it.message}", Toast.LENGTH_LONG)
                     .show()
             }
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val newUser = task.result.user
+                    firebaseFirestore
+                        .collection("admins")
+                        .document(userAdminId)
+                        .update("users", FieldValue.arrayUnion(newUser?.uid))
+                        .addOnSuccessListener {
+                            Toast.makeText(
+                                this.context,
+                                getString(R.string.message_account_created),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            binding.progressBar.isVisible = false
+                            requireActivity().finish()
+                        }
+
+                }
+            }
+    }
+
+    private fun adviceDialog(){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setMessage("Después de crear al usuario, se cerrará la sesión")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog = builder.create()
+        dialog.show()
     }
 }

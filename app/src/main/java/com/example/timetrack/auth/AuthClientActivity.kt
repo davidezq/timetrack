@@ -45,11 +45,6 @@ class AuthClientActivity : AppCompatActivity() {
             )
         }
 
-        binding.btnSignIn.setOnClickListener {
-            val i = Intent(this, CreateClientActivity::class.java)
-            startActivity(i)
-        }
-
     }
 
     private fun checkForm(vararg editTexts: EditText): Int {
@@ -80,6 +75,7 @@ class AuthClientActivity : AppCompatActivity() {
                     .collection("admins")
                     .get()
                     .addOnSuccessListener { documents ->
+
                         val admins = documents.map { it.id  }
                         if (admins.contains(user?.uid)) {
                             val i = Intent(this, AdminMainActivity::class.java)
@@ -91,7 +87,10 @@ class AuthClientActivity : AppCompatActivity() {
                             Toast.makeText(this.baseContext, "Welcome ${user.email}", Toast.LENGTH_LONG).show()
                             startActivity(i)
                         }
+                        binding.etEmail.text.clear()
+                        binding.etPassword.text.clear()
                     }
+
             }
             .addOnFailureListener {
                 Toast.makeText(view.context, "${it.message}", Toast.LENGTH_LONG).show()
