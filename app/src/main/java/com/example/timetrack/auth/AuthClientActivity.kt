@@ -9,6 +9,7 @@ import android.util.Patterns
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.example.timetrack.client.menu.MainActivity
 import com.example.timetrack.databinding.ActivityAuthClientBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -68,6 +69,7 @@ class AuthClientActivity : AppCompatActivity() {
     }
 
     private fun LogIn(view: View, email: String, password: String) {
+        binding.progressBar.isVisible = true
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
                 user = firebaseAuth.currentUser!!
@@ -75,7 +77,6 @@ class AuthClientActivity : AppCompatActivity() {
                     .collection("admins")
                     .get()
                     .addOnSuccessListener { documents ->
-
                         val admins = documents.map { it.id  }
                         if (admins.contains(user?.uid)) {
                             val i = Intent(this, AdminMainActivity::class.java)
@@ -89,11 +90,13 @@ class AuthClientActivity : AppCompatActivity() {
                         }
                         binding.etEmail.text.clear()
                         binding.etPassword.text.clear()
+                        binding.progressBar.isVisible = false
                     }
 
             }
             .addOnFailureListener {
                 Toast.makeText(view.context, "${it.message}", Toast.LENGTH_LONG).show()
+                binding.progressBar.isVisible = false
             }
 
     }
